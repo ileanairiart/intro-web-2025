@@ -6,6 +6,9 @@ En VSC clonar el repositorio del trabajo, agregar un README y realizar algunos c
 # Trabajo 3era clase y 4ta
 Creación de HTML lo mas parecido posible a una noticia a elección y agregandole estilos con CSS aplicando los conocimientos adquiridos en las clases.
 
+# GITHUB PAGES
+https://ileanairiart.github.io/intro-web-2025/
+
 
 ## Autor
 Iriart, Ileana
