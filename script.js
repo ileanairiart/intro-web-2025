@@ -1,5 +1,8 @@
 document.addEventListener("DOMContentLoaded", () => {
-  const form = document.getElementById("formSuscripcion");
+  // Support either id="formulario" (current HTML) or legacy id="formSuscripcion"
+  const form =
+    document.getElementById("formulario") ||
+    document.getElementById("formSuscripcion");
 
   const validaciones = {
     nombreCompleto: valor => valor.length > 6 && valor.includes(" "),
@@ -84,40 +87,42 @@ document.addEventListener("DOMContentLoaded", () => {
     });
   });
 
-  form.addEventListener("submit", (e) => {
-    e.preventDefault(); 
-    const datos = obtenerDatos();
-    let todoValido = true;
+  if (form) {
+    form.addEventListener("submit", (e) => {
+      e.preventDefault();
+      const datos = obtenerDatos();
+      let todoValido = true;
 
-    Object.keys(validaciones).forEach(id => {
-      const input = document.getElementById(id);
-      const valor = datos[id];
-
-      if (valor === "") {
-        mostrarError(input, mensajes.requerido);
-        input.style.border = "2px solid red";
-        todoValido = false;
-        return;
-      }
-
-      const valido = id === "repetirPassword"
-        ? validaciones[id](valor, datos)
-        : validaciones[id](valor);
-
-      if (!valido) {
-        mostrarError(input, mensajes[id]);
-        input.style.border = "2px solid red";
-        todoValido = false;
-      }
-    });
-
-    if (todoValido) {
-      form.reset(); 
       Object.keys(validaciones).forEach(id => {
         const input = document.getElementById(id);
-        input.style.border = "";
-        eliminarError(input);
+        const valor = datos[id];
+
+        if (valor === "") {
+          mostrarError(input, mensajes.requerido);
+          input.style.border = "2px solid red";
+          todoValido = false;
+          return;
+        }
+
+        const valido = id === "repetirPassword"
+          ? validaciones[id](valor, datos)
+          : validaciones[id](valor);
+
+        if (!valido) {
+          mostrarError(input, mensajes[id]);
+          input.style.border = "2px solid red";
+          todoValido = false;
+        }
       });
-    }
-  });
+
+      if (todoValido) {
+        form.reset();
+        Object.keys(validaciones).forEach(id => {
+          const input = document.getElementById(id);
+          input.style.border = "";
+          eliminarError(input);
+        });
+      }
+    });
+  }
 });
