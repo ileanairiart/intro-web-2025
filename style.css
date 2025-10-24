@@ -41,7 +41,7 @@ a {
     position: fixed;
     top: 0;
     height: 30px;
-    width: 100VW;
+    width: 100vw;
     background-color: rgb(128, 10, 10);
     color: white;
     display: flex;
@@ -73,7 +73,7 @@ a {
     align-items: center;
     height: 60px;
     z-index: 1002;
-    padding: 0 20 px;
+    padding: 0 20px;
     box-sizing: border-box;
     flex-wrap: wrap;
     overflow: hidden;
@@ -91,7 +91,7 @@ a {
     flex-wrap: wrap;
 }
 
-#logoCaras {
+#logoCarasHeader {
     width: 120px;
     height: 50px;
 }
@@ -126,7 +126,7 @@ nav {
     flex-wrap: wrap;
 }
 
-#logosRRSS {
+.logosRRSS, #logosRRSS {
     list-style: none;
     margin: 0;
     padding: 0;
@@ -134,7 +134,7 @@ nav {
     gap: 10px;
 }
 
-#logosRRSS img {
+.logosRRSS img, #logosRRSS img {
     width: 24px;
     height: 24px;
 }
@@ -192,7 +192,7 @@ main img {
     display: block;
     justify-content: center;
     text-align: left;
-    padding: 0 10xp;
+    padding: 0 10px;
     margin: 0 auto;
     font-size: 18px;
     line-height: 1.6;
@@ -242,7 +242,8 @@ form div p {
 }
 
 input[type="submit"],
-input[type="reset"] {
+input[type="reset"],
+button[type="submit"] {
     padding: 10px 20px;
     border: none;
     border-radius: 5px;
@@ -255,7 +256,6 @@ input[type="reset"] {
 
 aside {
     width: 350px;
-    max-width: 350px;
     background-color: white;
     padding: 10px;
     max-width: 100%;
@@ -274,7 +274,7 @@ aside {
 #loMasVisto h3 {
     font-size: 25px;
     color: rgb(44, 44, 44);
-    margin-bottom: 10PX;
+    margin-bottom: 10px;
 }
 
 #loMasVisto a {
@@ -347,19 +347,19 @@ footer {
 }
 
 
-#logosRRSS {
+.logosRRSS, #logosRRSS {
     margin-bottom: 15px;
     justify-content: center;
 }
 
-#logosRRSS a img {
+.logosRRSS a img, #logosRRSS a img {
     width: 28px;
     height: 28px;
     margin: 0 8px;
     transition: transform 0.2s;
 }
 
-#logosRRSS a img:hover {
+.logosRRSS a img:hover, #logosRRSS a img:hover {
     transform: scale(1.1);
 }
 
